@@ -1,4 +1,4 @@
-# MyApiApp
+# My Simple Angular ApiApp With Db Json
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
 
@@ -14,5 +14,4 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-![Dbjson with Angular](DbjsonAndAngular.jpg)
-<img src="DbjsonAndAngular.jpg" height="500">
+<img src="https://github.com/AbdulmelikOztunc/My_Api_Angular17/blob/main/DbjsonAndAngular.JPG" height="500">
