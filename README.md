@@ -14,5 +14,4 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-![Dbjson with Angular](DbjsonAndAngular.jpg)
 <img src="https://github.com/AbdulmelikOztunc/My_Api_Angular17/blob/main/DbjsonAndAngular.JPG" height="500">
