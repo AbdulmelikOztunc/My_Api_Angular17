@@ -1,0 +1,203 @@
+<h1 class="alert alert-success mt-4 text-center">Personel App</h1>
+<div>
+  <button
+    class="btn btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#addPersonelModel"
+  >
+    Add Personel
+  </button>
+</div>
+
+<table class="table table-hover table-bordered mt-4 text-center">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Firstname</th>
+      <th>LastName</th>
+      <th>Profession</th>
+      <th>Salary</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (personel of personels; track personel) {
+    <tr>
+      <td>
+      {{$index+1}}
+      </td>
+      <td>{{ personel.firstName }}</td>
+      <td>{{ personel.lastName }}</td>
+      <td>{{ personel.profession }}</td>
+      <td>{{ personel.salary |currency:"₺":"symbol":"1.0-0"}}</td>
+      <td>  <div
+        class="btn btn-sm btn-outline-danger me-2"
+        (click)="delete(personel.id)"
+      >
+        Remove
+      </div>
+      <div
+      class="btn btn-sm btn-outline-info"
+      (click)="updateModal(personel)"
+      data-bs-toggle="modal"
+      data-bs-target="#addUpdateModel"
+    >
+        Update
+      </div></td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="addPersonelModel"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Add Personel Form</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          id="addPersonelCloseModel"
+        ></button>
+      </div>
+      <form #addForm="ngForm" (ngSubmit)="add(addForm)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="firstname">FirstName</label>
+            <input
+              type="text"
+              ngModel
+              name="firstName"
+              class="form-control"
+              id="firstName"
+            />
+          </div>
+          <div class="form-group mt-1">
+            <label for="lastName">LastName</label>
+            <input
+              type="text"
+              ngModel
+              name="lastName"
+              class="form-control"
+              id="lastName"
+            />
+          </div>
+          <div class="form-group mt-1">
+            <label for="profession">Profession</label>
+            <select
+              type="text"
+              ngModel
+              name="profession"
+              class="form-control"
+              id="profession"
+            >
+              @for (profession of professionType; track profession) {
+              <option>{{ profession }}</option>
+              }
+            </select>
+          </div>
+          <div class="form-group mt-1">
+            <label for="salary">Salary</label>
+            <input
+              type="number"
+              ngModel
+              name="salary"
+              class="form-control"
+              id="salary"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="addUpdateModel"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Update Personel Form</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          id="UpdatePersonelCloseModel"
+        ></button>
+      </div>
+
+      <form #UpdateForm="ngForm" (ngSubmit)="update(UpdateForm)">        
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="firstname">FirstName</label>
+            <input
+              type="text"
+              [ngModel]="personelToUpdate?.firstName"
+              name="firstName"
+              class="form-control"
+              id="firstName"
+            />
+            <input type="hidden" name="id" [ngModel]="personelToUpdate?.id">
+          </div>
+          <div class="form-group mt-1">
+            <label for="lastName">LastName</label>
+            <input
+              type="text"
+              [ngModel]="personelToUpdate?.lastName"
+              name="lastName"
+              class="form-control"
+              id="lastName"
+            />
+          </div>
+          <div class="form-group mt-1">
+            <label for="profession">Profession</label>
+            <select
+              type="text"
+              [ngModel]="personelToUpdate?.profession"
+              name="profession"
+              class="form-control"
+              id="profession"
+            >
+              <option *ngFor="let item of professionType">
+                {{ item }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group mt-1">
+            <label for="salary">Salary</label>
+            <input
+              type="number"
+              [ngModel]="personelToUpdate?.salary"
+              name="salary"
+              class="form-control"
+              id="salary"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-sm btn-outline-info" type="submit" >Update</button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>

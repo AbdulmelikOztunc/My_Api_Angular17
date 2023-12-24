@@ -1,0 +1,44 @@
+{
+  "personels": [
+    {
+      "id": 1,
+      "firstName": "Abdulmelik",
+      "lastName": "Öztunç",
+      "profession": "Software",
+      "salary": 60000
+    },
+    {
+      "firstName": "Mehmet Fatih",
+      "id": 2,
+      "lastName": "Bezan",
+      "profession": "Teacher",
+      "salary": 45000
+    },
+    {
+      "firstName": "Serdar",
+      "id": 3,
+      "lastName": "Mor",
+      "profession": "Software",
+      "salary": 60000
+    },
+    {
+      "firstName": "Zafer",
+      "lastName": "Tekke",
+      "profession": "Teacher",
+      "salary": 87000,
+      "id": 4
+    },
+    {
+      "firstName": "Sıradan",
+      "lastName": "Vatandaş",
+      "profession": "Cleaner",
+      "salary": 120000,
+      "id": 5
+    }
+  ],
+  "test": [
+    {
+      "test": "test"
+    }
+  ]
+}
